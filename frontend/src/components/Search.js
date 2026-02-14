@@ -1,28 +1,30 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function Search({ setWeather }) {
+function Search({ setWeather, setLoading }) {
   const [city, setCity] = useState("");
 
-  const searchWeather = async () => {
+  const handleSearch = async () => {
+    if (!city) return;
     try {
-      const { data } = await axios.get(
-        `http://localhost:5000/api/weather/${city}`
-      );
+      setLoading(true);
+      const { data } = await axios.get(`/api/weather/${city}`);
       setWeather(data);
-    } catch (error) {
-      alert("City not found");
+    } catch (err) {
+      alert(err.response?.data?.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div>
+    <div className="searchBar">
       <input
-        placeholder="Enter city"
+        placeholder="Enter city..."
         value={city}
         onChange={(e) => setCity(e.target.value)}
       />
-      <button onClick={searchWeather}>Search</button>
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
 }

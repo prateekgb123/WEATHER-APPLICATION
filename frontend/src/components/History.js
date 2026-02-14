@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function History() {
+function History({ setWeather }) {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
     const fetchHistory = async () => {
-      const { data } = await axios.get(
-        "http://localhost:5000/api/weather/history/all"
-      );
+      const { data } = await axios.get("/api/weather/history/all");
       setHistory(data);
     };
-
     fetchHistory();
   }, []);
 
@@ -19,9 +16,13 @@ function History() {
     <div>
       <h2>Recent Searches</h2>
       {history.map((item) => (
-        <p key={item._id}>
+        <div
+          key={item._id}
+          className="historyItem"
+          onClick={() => setWeather(item)}
+        >
           {item.city} - {item.temperature}°C
-        </p>
+        </div>
       ))}
     </div>
   );

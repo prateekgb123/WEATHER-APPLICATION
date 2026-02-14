@@ -1,26 +1,146 @@
+/* ===== GLOBAL ===== */
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: Inter, sans-serif;
   background: linear-gradient(135deg, #4facfe, #00f2fe);
+  min-height: 100vh;
+  color: white;
 }
 
 .app {
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-input {
-  padding: 10px;
-  margin-right: 10px;
+.title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 25px;
 }
 
-button {
-  padding: 10px;
+/* ===== SEARCH ===== */
+.searchBar {
+  margin-bottom: 25px;
 }
 
-.card {
-  background: white;
-  padding: 15px;
-  margin: 20px auto;
-  width: 250px;
+.searchBar input {
+  padding: 14px;
+  width: 230px;
   border-radius: 10px;
+  border: none;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.searchBar button {
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s;
+}
+
+.searchBar button:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+/* ===== WEATHER CARD ===== */
+.card {
+  margin: 20px auto;
+  width: 380px;
+  padding: 28px;
+  border-radius: 24px;
+
+  /* glass effect */
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.12)
+  );
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== CITY ===== */
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.hero img {
+  width: 80px;
+  height: 80px;
+}
+
+.temp {
+  font-size: 54px;
+  font-weight: bold;
+}
+
+/* ===== CONDITION ===== */
+.condition {
+  font-size: 18px;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+/* ===== MIN MAX ===== */
+.minmax {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* ===== GRID ===== */
+.grid {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.grid p {
+  margin: 0;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  text-align: left;
+}
+
+/* ===== HISTORY ===== */
+.historyItem {
+  cursor: pointer;
+  margin: 6px;
+  font-size: 14px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.historyItem:hover {
+  opacity: 1;
 }
