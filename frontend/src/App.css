@@ -144,3 +144,82 @@ body {
 .historyItem:hover {
   opacity: 1;
 }
+/* ===== RECENT SEARCH SECTION ===== */
+.historySection {
+  margin-top: 35px;
+}
+
+.historySection h2 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* grid layout */
+.historyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* mini card */
+.historyCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px;
+  border-radius: 18px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.12)
+  );
+
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.historyCard:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* icon */
+.historyCard img {
+  width: 45px;
+  height: 45px;
+}
+
+/* text */
+.historyInfo {
+  text-align: left;
+}
+
+.historyInfo h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.historyInfo p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.historyInfo span {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.historyInfo small {
+  font-size: 10px;
+  opacity: 0.7;
+}

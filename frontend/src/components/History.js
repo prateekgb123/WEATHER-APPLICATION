@@ -12,18 +12,38 @@ function History({ setWeather }) {
     fetchHistory();
   }, []);
 
+  const formatTime = (date) => {
+    return new Date(date).toLocaleTimeString();
+  };
+
   return (
-    <div>
+    <div className="historySection">
       <h2>Recent Searches</h2>
-      {history.map((item) => (
-        <div
-          key={item._id}
-          className="historyItem"
-          onClick={() => setWeather(item)}
-        >
-          {item.city} - {item.temperature}°C
-        </div>
-      ))}
+
+      <div className="historyGrid">
+        {history.map((item) => {
+          const iconUrl = item.icon
+            ? `https://openweathermap.org/img/wn/${item.icon}.png`
+            : "";
+
+          return (
+            <div
+              key={item._id}
+              className="historyCard"
+              onClick={() => setWeather(item)}
+            >
+              {iconUrl && <img src={iconUrl} alt="icon" />}
+
+              <div className="historyInfo">
+                <h4>{item.city}</h4>
+                <p>{item.temperature}°C</p>
+                <span>{item.condition}</span>
+                <small>{formatTime(item.date)}</small>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

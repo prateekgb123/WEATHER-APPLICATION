@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="title">🌤 MERN Weather App</h1>
+      <h1 className="title">🌤 Weather App</h1>
 
       {/* Search */}
       <Search setWeather={setWeather} setLoading={setLoading} />
